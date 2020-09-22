@@ -76,7 +76,7 @@ const Maps = ({ tiles, tileset, size, activeTile, setTiles, backgroundTile, zInd
   const [fill, setFill] = useState('')
 
   useEffect(() => {
-    setFill(`url(/map-sprites/${tileset}.png) -${backgroundTile.x}px -${backgroundTile.y}px no-repeat`)
+    setFill("url(" + require(`../../../public/map-sprites/${tileset}.png`) + ") " + `-${backgroundTile.x}px -${backgroundTile.y}px no-repeat`)
   }, [backgroundTile])
 
     return (
@@ -118,7 +118,7 @@ const Maps = ({ tiles, tileset, size, activeTile, setTiles, backgroundTile, zInd
                     borderTop: "1px solid black",
                     borderRight: "1px solid black",
                     borderBottom: "1px solid black",
-                    background:`url(/map-sprites/${tile.season_back}.png) -${tile.b.x}px -${tile.b.y}px no-repeat`,
+                    background: "url(" + require(`../../../public/map-sprites/${tile.season_back}.png`) + ") " + `-${tile.b.x}px -${tile.b.y}px no-repeat`,
                     width: 32,
                     height: 32,
                   }}
@@ -138,7 +138,7 @@ const Maps = ({ tiles, tileset, size, activeTile, setTiles, backgroundTile, zInd
                     borderTop: "1px solid black",
                     borderRight: "1px solid black",
                     borderBottom: "1px solid black",
-                    background: `url(/map-sprites/${tile.season_front}.png) -${tile.v.x}px -${tile.v.y}px no-repeat`,
+                    background: "url(" + require(`../../../public/map-sprites/${tile.season_front}.png`) + ") " + `-${tile.v.x}px -${tile.v.y}px no-repeat`,
                     width: 32,
                     height: 32,
                   }}

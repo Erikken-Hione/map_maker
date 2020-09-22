@@ -44,7 +44,7 @@ const Tile = ({tileset, position, activeTile, setActiveTile, setTileset, setBack
 	  	<div style={{display: 'flex', marginBottom: 4, marginTop: 4}}>
 		  	<img id="handle" src="/img/drag-handle.png" alt="handle" />
 				<div style={{
-					background: `url(map-sprites/${tileset}.png) -${activeTile.x}px -${activeTile.y}px no-repeat`,
+					background: "url(" + require(`../../../public/map-sprites/${tileset}.png`) + ") " + `-${activeTile.x}px -${activeTile.y}px no-repeat`,
 					width: 32,
 					height: 32,
 					border: "2px solid red"
@@ -100,7 +100,7 @@ const Tile = ({tileset, position, activeTile, setActiveTile, setTileset, setBack
 		      				style={{
 			      				borderTop: "1px solid black",
 			      				borderRight: "1px solid black",
-			      				background: `url(/map-sprites/${tileset}.png) -${x*32}px -${y*32}px no-repeat`,
+			      				background: 'url(' + require(`../../../public/map-sprites/${tileset}.png`) + ") " + `-${x*32}px -${y*32}px no-repeat`,
 			      				width: 32,
 			      				height: 32
 	      				}}/>
