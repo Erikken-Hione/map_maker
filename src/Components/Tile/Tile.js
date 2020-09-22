@@ -42,7 +42,7 @@ const Tile = ({tileset, position, activeTile, setActiveTile, setTileset, setBack
 	      backgroundColor: "white"
 	    }}>
 	  	<div style={{display: 'flex', marginBottom: 4, marginTop: 4}}>
-		  	<img id="handle" src="/img/drag-handle.png" alt="handle" />
+		  	<img id="handle" src={require("../../img/drag-handle.png")} alt="handle" />
 				<div style={{
 					background: "url(" + require(`../../../public/map-sprites/${tileset}.png`) + ") " + `-${activeTile.x}px -${activeTile.y}px no-repeat`,
 					width: 32,
