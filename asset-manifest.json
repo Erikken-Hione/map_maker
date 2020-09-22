@@ -1,0 +1,29 @@
+{
+  "files": {
+    "main.css": "/map_maker/static/css/main.8c5ec0aa.chunk.css",
+    "main.js": "/map_maker/static/js/main.bd04ea63.chunk.js",
+    "main.js.map": "/map_maker/static/js/main.bd04ea63.chunk.js.map",
+    "runtime-main.js": "/map_maker/static/js/runtime-main.6866ed58.js",
+    "runtime-main.js.map": "/map_maker/static/js/runtime-main.6866ed58.js.map",
+    "static/css/2.ee241de9.chunk.css": "/map_maker/static/css/2.ee241de9.chunk.css",
+    "static/js/2.e6841bcf.chunk.js": "/map_maker/static/js/2.e6841bcf.chunk.js",
+    "static/js/2.e6841bcf.chunk.js.map": "/map_maker/static/js/2.e6841bcf.chunk.js.map",
+    "index.html": "/map_maker/index.html",
+    "precache-manifest.699b964c12d2dbb035ac1afa3f831361.js": "/map_maker/precache-manifest.699b964c12d2dbb035ac1afa3f831361.js",
+    "service-worker.js": "/map_maker/service-worker.js",
+    "static/css/2.ee241de9.chunk.css.map": "/map_maker/static/css/2.ee241de9.chunk.css.map",
+    "static/css/main.8c5ec0aa.chunk.css.map": "/map_maker/static/css/main.8c5ec0aa.chunk.css.map",
+    "static/js/2.e6841bcf.chunk.js.LICENSE.txt": "/map_maker/static/js/2.e6841bcf.chunk.js.LICENSE.txt",
+    "static/media/fall.png": "/map_maker/static/media/fall.29cbe0d4.png",
+    "static/media/flower.png": "/map_maker/static/media/flower.f00a854a.png",
+    "static/media/spring.png": "/map_maker/static/media/spring.4ad9d4a2.png",
+    "static/media/winter.png": "/map_maker/static/media/winter.a1cf1d29.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.6866ed58.js",
+    "static/css/2.ee241de9.chunk.css",
+    "static/js/2.e6841bcf.chunk.js",
+    "static/css/main.8c5ec0aa.chunk.css",
+    "static/js/main.bd04ea63.chunk.js"
+  ]
+}

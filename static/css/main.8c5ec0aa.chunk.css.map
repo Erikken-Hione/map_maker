@@ -1,0 +1,1 @@
+{"version":3,"sources":["App.css"],"names":[],"mappings":"AAAA,WACC,wBAAyB,CACzB,UACD","file":"main.8c5ec0aa.chunk.css","sourcesContent":[".box:hover {\r\n\tbackground-color: #C8F3F5;\r\n\topacity: 0.6;\r\n}\r\n"]}
