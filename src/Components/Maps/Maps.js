@@ -3,7 +3,7 @@ import useKeyPress from '../../Hooks/UseKeyPress/UseKeyPress.js'
 
 
 
-const Maps = ({ tiles, tileset, size, activeTile, setTiles, backgroundTile, zIndex, setzIndex, boolSwap, setBackgroundTile}) => {
+const Maps = ({ tiles, tileset, size, activeTile, setTiles, zIndex, setzIndex, boolSwap }) => {
   
   const cloneMatrix = (m) => {
     const clone = new Array(m.length)
@@ -12,7 +12,6 @@ const Maps = ({ tiles, tileset, size, activeTile, setTiles, backgroundTile, zInd
     }
     return clone;
   }
-
 
   const dropTile = ({x,y, tileset}) => {
     setTiles((prev) => {
@@ -23,7 +22,7 @@ const Maps = ({ tiles, tileset, size, activeTile, setTiles, backgroundTile, zInd
         season_front: tileset,
       };
       clone[y][x] = update;
-      console.log(clone)
+      console.log('clone', clone)
       return clone;
     });
   }
@@ -43,28 +42,6 @@ const Maps = ({ tiles, tileset, size, activeTile, setTiles, backgroundTile, zInd
     })
   }
 
-  const [save, setSave] = useState({
-    tiles: [],
-    background: {}
-  })
-
-  const saveLoad = (key) => {
-    if(key === 'k') {
-        setSave({
-          tiles: tiles,
-          background: backgroundTile
-        })
-    } else if (key === 'l') {
-        setTiles(save.tiles)
-        setBackgroundTile(save.background)
-    }
-  } 
-
-  useKeyPress(event => {
-    saveLoad(event.key.toLowerCase())
-    event.preventDefault()
-  })
-
   useEffect(()=>{
     if(boolSwap) {
       setzIndex({front: 1, back: 2})
@@ -72,12 +49,6 @@ const Maps = ({ tiles, tileset, size, activeTile, setTiles, backgroundTile, zInd
       setzIndex({front: 2, back: 1})
     }
   }, [boolSwap])
-
-  const [fill, setFill] = useState('')
-
-  useEffect(() => {
-    setFill("url(" + require(`../../../public/map-sprites/${tileset}.png`) + ") " + `-${backgroundTile.x}px -${backgroundTile.y}px no-repeat`)
-  }, [backgroundTile])
 
     return (
     <div
@@ -97,7 +68,7 @@ const Maps = ({ tiles, tileset, size, activeTile, setTiles, backgroundTile, zInd
                     borderTop: "1px solid black",
                     borderRight: "1px solid black",
                     borderBottom: "1px solid black",
-                    background: fill,
+                    background: "url(" + require(`../../../public/map-sprites/${tile.background_set}.png`) + ") " + `-${tile.background.x}px -${tile.background.y}px no-repeat`,
                     width: 32,
                     height: 32,
                   }}

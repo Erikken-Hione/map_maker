@@ -9,7 +9,6 @@ function App() {
   const [tileset, setTileset] = useState('spring')
   const [activeTile, setActiveTile] = useState({x: 1*32, y: 4*32})
   const [tiles, setTiles] = useState([])
-  const [backgroundTile, setBackgroundTile] = useState({ x:-32, y:-32})
   const [mapSize, setMapSize] = useState({
     width: 600,
     height: 600
@@ -38,7 +37,9 @@ function App() {
           v: {x:  160, y: 0},
           season_front: 'spring',
           season_back: 'spring',
-          b: {x: -32, y: -32}
+          b: {x: -32, y: -32},
+          background: {x: -32, y: -32},
+          background_set: 'spring'
         });
       }
       _tiles.push(row);
@@ -62,8 +63,9 @@ function App() {
         activeTile={activeTile}
         setActiveTile={setActiveTile}
         setTileset = {setTileset}
-        setBackgroundTile = {setBackgroundTile}
         setBoolSwap = {setBoolSwap}
+        setTiles = {setTiles}
+        tiles = {tiles}
       />
 
       <Maps 
@@ -73,11 +75,9 @@ function App() {
         activeTile={activeTile} 
         setTiles={setTiles}
         setTileset={setTileset}
-        backgroundTile={backgroundTile}
         zIndex = {zIndex}
         setzIndex = {setzIndex}
         boolSwap = {boolSwap}
-        setBackgroundTile = {setBackgroundTile}
       />
 
     </div>;

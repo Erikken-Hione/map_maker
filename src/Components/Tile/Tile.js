@@ -3,7 +3,7 @@ import Dropdown from 'react-dropdown';
 import 'react-dropdown/style.css';
 import cloneMatrix from '../Maps/Maps.js';
 
-const Tile = ({tileset, position, activeTile, setActiveTile, setTileset, setBackgroundTile, setBoolSwap}) => {
+const Tile = ({tileset, position, activeTile, setActiveTile, setTileset, setBoolSwap, setTiles, tiles}) => {
 
 	const tilesetData = require("../../Data/Tilesets.json")
 	const tilesets = Object.keys(tilesetData).map((set) => ({
@@ -18,7 +18,7 @@ const Tile = ({tileset, position, activeTile, setActiveTile, setTileset, setBack
 	const tilesetVariant = tileset
 	const {width, height} = tilesetData["map-sprites"].size
 
-	const tiles = []
+	const toolTiles = []
 	let id = 0
  	for(let y = 0; y < height; y = y + 32 ) {
  		const row = []
@@ -27,8 +27,37 @@ const Tile = ({tileset, position, activeTile, setActiveTile, setTileset, setBack
  				x, y, id: id++
  			})
  		}
- 		tiles.push(row)
+ 		toolTiles.push(row)
  	}
+
+  	const cloneMatrix = (m) => {
+    const clone = new Array(m.length)
+    for (let i=0; i < m.length; ++i ) {
+      clone[i] = m[i].slice(0)
+    }
+    return clone;
+  	}
+
+  	const changeBackground = (x,y, tileset) => {
+  		setTiles((prev) => {
+  			const clone = cloneMatrix(prev)
+  			const update = {
+  				...clone[y][x],
+  				background: activeTile,
+  				background_set: tileset
+  			};
+  			clone[y][x] = update
+  			return clone
+  		})
+  	}
+
+  	const changer = () => {
+  		tiles.map((row, y) => {
+  			row.map((tile, x) => {
+  				changeBackground(x,y, tileset)
+  			})
+  		})
+  	}
 
 	return (
     <div 
@@ -61,7 +90,7 @@ const Tile = ({tileset, position, activeTile, setActiveTile, setTileset, setBack
 
 				<div style={{marginLeft: 8}}>
 					<button 
-						onClick={() => setBackgroundTile(activeTile)} 
+						onClick={() => changer()} 
 						style={{ padding: "6px 20px", fontSize: 14}}>FILL</button>
 				</div>
 				<div style={{marginLeft: 8}}>
@@ -74,7 +103,7 @@ const Tile = ({tileset, position, activeTile, setActiveTile, setTileset, setBack
 
   		<div style={{position: 'absolute', zIndex: 10, opacity: 0.55}}>
     		{
-	      	tiles.map((row, y) => (
+	      	toolTiles.map((row, y) => (
 	      		<div style={{ display: "flex" }}>
 	      			{row.map((tile, x) => 
 	    					<div 
@@ -93,7 +122,7 @@ const Tile = ({tileset, position, activeTile, setActiveTile, setTileset, setBack
       </div>
   		<div >
     		{
-	      	tiles.map((row, y) => (
+	      	toolTiles.map((row, y) => (
 	      		<div style={{ display: "flex" }}>
 	      			{row.map((tile, x) => 
 	    					<div 
